@@ -1,3 +1,3 @@
 export default function returnHowManyArguments(...param) {
-  return param;
+  return param.length;
 }
