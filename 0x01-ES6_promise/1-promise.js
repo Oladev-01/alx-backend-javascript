@@ -6,8 +6,7 @@ export default function getFullResponseFromAPI(success) {
         body: 'Sucess',
       });
     } else {
-      // eslint-disable-next-line prefer-promise-reject-errors
-      rej('The fake API is not working currently');
+      rej(new Error('The fake API is not working currently'));
     }
   });
 }
