@@ -1,3 +1,9 @@
-import uploadPhoto from './5-photo-reject';
+import handleProfileSignup from './6-final-user';
 
-console.log(uploadPhoto('ola.png'));
+handleProfileSignup('Bob', 'Dylan', '7-photo.png')
+    .then((results) => {
+        console.log(results);
+    })
+    .catch((error) => {
+        console.error(error);
+    });
