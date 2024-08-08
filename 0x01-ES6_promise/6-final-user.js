@@ -12,7 +12,7 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
       }
       return {
         status: results.status,
-        value: results.reason,
+        value: results.message,
       };
     }));
 }
