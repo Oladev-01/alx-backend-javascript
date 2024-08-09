@@ -1,17 +1,22 @@
-function readFilePromise(path) {
-    return new Promise((resolve, reject) => {
-        readFile(path, (err, data) => {
-            if (err) {
-                reject(err);
-            }
-            resolve(data);
-        });
-    });
+import HolbertonCourse from "./2-hbtn_course.js";
+
+const c1 = new HolbertonCourse("ES6", 1, ["Bob", "Jane"])
+console.log(c1.name);
+c1.name = "Python 101";
+console.log(c1);
+
+try {
+    console.log('i was here');
+    c1.name = 12;
+}
+catch (err) {
+    console.log('i was here');
+    console.log(err);
 }
 
 try {
-    const data = readFilePromise("babel.config.js");
-    console.log(data);
-} catch (err) {
-    console.error(err);
+    const c2 = new HolbertonCourse("ES6", "1", ["Bob", "Jane"]);
+}
+catch (err) {
+    console.log(err);
 }
