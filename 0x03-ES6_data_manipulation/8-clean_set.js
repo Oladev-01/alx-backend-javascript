@@ -1,9 +1,9 @@
-export default function cleanSet(set, string) {
+export default function cleanSet(set, startString) {
   const result = [];
-  if (string.length !== 0) {
+  if (startString.length !== 0) {
     for (const str of set) {
-      if (str.startsWith(string)) {
-        result.push(str.slice(string.length));
+      if (str.startsWith(startString)) {
+        result.push(str.slice(startString.length));
       }
     }
   }
