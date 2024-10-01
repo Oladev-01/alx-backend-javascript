@@ -5,40 +5,32 @@ interface Student {
     location: string;
 }
 
-// creating two students of interface Student
-
 const student1: Student = {
     firstName: 'John',
     lastName: 'Doe',
-    age: 24,
-    location: 'San Francisco'
-};
+    age: 20,
+    location: 'San-Francisco'
+}
 
 const student2: Student = {
     firstName: 'Mary',
     lastName: 'Jane',
-    age: 20,
-    location: 'California'
-};
-
-const studentsList: Student[] = [student1, student2];
-
-// creating table
+    age: 19,
+    location: 'Boston'
+}
+const studentsList = [student1, student2];
 const table = document.createElement('table');
 const tbody = document.createElement('tbody');
 
 studentsList.forEach((student) => {
     const row = document.createElement('tr');
-    const firstNameCell = document.createElement('td');
-    firstNameCell.textContent = student.firstName;
-    row.appendChild(firstNameCell);
-
-    const locationCell = document.createElement('td');
-    locationCell.textContent = student.location;
-    row.appendChild(locationCell);
-
+    const rowCell1 = document.createElement('td');
+    rowCell1.textContent = student.firstName;
+    row.appendChild(rowCell1);
+    const rowCell2 = document.createElement('td');
+    rowCell2.textContent = student.location;
+    row.appendChild(rowCell2);
     tbody.appendChild(row);
 });
-
 table.appendChild(tbody);
 document.body.appendChild(table);
