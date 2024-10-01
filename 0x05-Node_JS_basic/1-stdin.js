@@ -8,8 +8,3 @@ process.stdin.on('data', (inp) => {
 process.on('exit', () => {
   console.log('This important software is now closing');
 });
-
-process.on('SIGINT', () => {
-  console.log('\nThis important software is now closing');
-  process.exit();
-});
