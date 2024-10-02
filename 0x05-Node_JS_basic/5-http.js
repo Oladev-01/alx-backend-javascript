@@ -54,7 +54,6 @@ const app = http.createServer((req, res) => {
     countStudents(path)
       .then((data) => {
         res.statusCode = 200;
-        res.setHeader('Content-Type', 'text/plain');
         res.end(data);
       }).catch((error) => {
         res.statusCode = 400;
