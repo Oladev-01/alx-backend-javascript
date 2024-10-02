@@ -5,6 +5,7 @@ function countStudents(path) {
   return new Promise((res, rej) => {
     fs.readFile(path, 'utf8', (err, data) => {
       if (err) {
+        // eslint-disable-next-line prefer-promise-reject-errors
         rej('Cannot load data from database');
       } else {
         const dataLines = data.split('\n').filter((line) => line.trim() !== '');
@@ -18,7 +19,7 @@ function countStudents(path) {
           studentData.forEach((std) => {
             const student = std.split(',');
             if (student.length !== headers.length) {
-              rej('Invalid student data format');
+              rej();
             }
             const field = student[student.length - 1];
             if (!fieldCounts[field]) {
@@ -45,23 +46,21 @@ const app = http.createServer((req, res) => {
     res.end('Hello Holberton School!');
   } else if (req.url === '/students') {
     res.setHeader('Content-Type', 'text/plain');
-    const path = process.argv[2];
+    let path = process.argv[2];
     if (!path) {
-      res.statusCode = 500;
-      res.end('Path to the database is missing');
-    } else {
-      countStudents(path)
-        .then((data) => {
-          res.statusCode = 200;
-          res.setHeader('Content-Type', 'text/plain');
-          res.end(data);
-        }).catch((error) => {
-          res.statusCode = 404;
-          res.end(String(error));
-        });
+      path = 'database.csv';
     }
+    countStudents(path)
+      .then((data) => {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'text/plain');
+        res.end(data);
+      }).catch((error) => {
+        res.statusCode = 404;
+        res.end(String(error));
+      });
   }
 });
 
-app.listen(1245, () => { });
+app.listen(1245, () => {});
 module.exports = app;
