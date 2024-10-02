@@ -57,7 +57,7 @@ const app = http.createServer((req, res) => {
         res.setHeader('Content-Type', 'text/plain');
         res.end(data);
       }).catch((error) => {
-        res.statusCode = 404;
+        res.statusCode = 400;
         res.end(String(error));
       });
   }
