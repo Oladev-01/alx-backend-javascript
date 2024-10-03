@@ -56,7 +56,7 @@ app.get('/students', (req, res) => {
     .then((data) => {
       res.send(data);
     }).catch((error) => {
-      res.status(404);
+      res.status(500);
       res.send(error);
     });
 });
