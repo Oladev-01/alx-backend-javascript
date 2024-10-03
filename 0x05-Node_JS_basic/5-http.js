@@ -56,7 +56,7 @@ const app = http.createServer((req, res) => {
         res.statusCode = 200;
         res.end(data);
       }).catch((error) => {
-        res.statusCode = 400;
+        res.statusCode = 500;
         res.end(String(error));
       });
   }
