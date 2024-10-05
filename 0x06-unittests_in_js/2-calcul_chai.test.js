@@ -9,7 +9,7 @@ describe('SUM', () => {
     });
 });
 
-describe('SUBTRACT', () => {
+describe('type=SUBTRACT', () => {
     it('should return expected value for SUBTRACT', () => {
         expect(calculateNumber('SUBTRACT', -2, -4.5)).to.equal(2);
         expect(calculateNumber('SUBTRACT', 2, -4.5)).to.equal(6);
